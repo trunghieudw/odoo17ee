@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="esms_api_routes_get_balance" model="esms.api.routes">
+            <field name="esms_api_id" ref="esms_integration.esms_api"/>
+            <field name="name">Lấy số dư tài khoản</field>
+            <field name="code">get_balance</field>
+            <field name="sms_type">not_use</field>
+            <field name="route">/MainService.svc/json/GetBalance_json</field>
+            <field name="method">post</field>
+            <field name="header">
+                {
+                    "Content-Type": "application/json",
+                    "Cookie": "ASP.NET_SessionId=owevtxyrtqm5gvj5zwjfeb2z"
+                }
+            </field>
+        </record>
+
+        <record id="esms_api_routes_send_marketing" model="esms.api.routes">
+            <field name="esms_api_id" ref="esms_integration.esms_api"/>
+            <field name="name">Gửi tin Quảng cáo</field>
+            <field name="code">send_marketing</field>
+            <field name="sms_type">1</field>
+            <field name="route">/MainService.svc/json/SendMultipleSMSBrandname_json/</field>
+            <field name="method">post</field>
+            <field name="header">
+                {
+                    "Content-Type": "application/json",
+                    "Cookie": "ASP.NET_SessionId=nnkmnp1hqg4qiy2ar5x4owjq"
+                }
+            </field>
+        </record>
+
+        <record id="esms_api_routes_send_cus_care_post" model="esms.api.routes">
+            <field name="esms_api_id" ref="esms_integration.esms_api"/>
+            <field name="name">Gửi tin Chăm sóc khách hàng</field>
+            <field name="code">send_cus_care_post</field>
+            <field name="sms_type">2</field>
+            <field name="route">/MainService.svc/json/SendMultipleMessage_V4_post_json</field>
+            <field name="method">post</field>
+            <field name="header">
+                {
+                    "Content-Type": "application/json"
+                }
+            </field>
+        </record>
+
+        <record id="esms_api_routes_send_cheap_fixed_post" model="esms.api.routes">
+            <field name="esms_api_id" ref="esms_integration.esms_api"/>
+            <field name="name">Gửi tin Cố định giá rẻ</field>
+            <field name="code">send_cheap_fixed_post</field>
+            <field name="sms_type">8</field>
+            <field name="route">/MainService.svc/json/SendMultipleMessage_V4_post_json</field>
+            <field name="method">post</field>
+            <field name="header">
+                {
+                    "Content-Type": "application/json"
+                }
+            </field>
+        </record>
+
+        <function name="_get_balance" model="esms.api">
+            <value model="esms.api" eval="obj().env.ref('esms_integration.esms_api')"/>
+        </function>
+    </data>
+</odoo>

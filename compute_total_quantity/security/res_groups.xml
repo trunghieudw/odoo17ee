@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="group_view_total_quantity_on_delivery_order" model="res.groups">
+		<field name="name">Show Products and Quantity on Delivery Order</field>
+	</record>
+	<record id="group_view_total_quantity_on_sale_order" model="res.groups">
+		<field name="name">Show Products and Quantity on Sale Order</field>
+	</record>
+</odoo>

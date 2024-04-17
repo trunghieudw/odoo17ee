@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="zalo_api_form_view" model="ir.ui.view">
+            <field name="name">zalo api</field>
+            <field name="model">zalo.api</field>
+            <field name="arch" type="xml">
+                <form string="Zalo OA">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="secret_key"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="zalo_api_tree_view" model="ir.ui.view">
+            <field name="name">zalo api</field>
+            <field name="model">zalo.api</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="name"/>
+                    <field name="secret_key"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="zalo_api_act_window" model="ir.actions.act_window">
+            <field name="name">Zalo API</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">zalo.api</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="zalo_api_reponse_view_form" model="ir.ui.view">
+            <field name="name">zalo_api_reponse_view_form</field>
+            <field name="model">zalo.api.reponse</field>
+            <field name="arch" type="xml">
+                <form string="zalo_api_reponse_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="type_api"/>
+                                <field name="body_data"/>
+                            </group>
+                            <group>
+                                <field name="phone"/>
+                                <field name="reponse_x"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="zalo_api_reponse_view_tree" model="ir.ui.view">
+            <field name="name">zalo_api_reponse_view_tree</field>
+            <field name="model">zalo.api.reponse</field>
+            <field name="arch" type="xml">
+                <tree string="_tree">
+                    <field name="type_api"/>
+                    <field name="phone"/>
+                    <field name="body_data"/>
+                    <field name="reponse_x"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="zalo_api_reponse_act_window" model="ir.actions.act_window">
+            <field name="name">Zalo API Reponse</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">zalo.api.reponse</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_company_form_inherit" model="ir.ui.view">
+            <field name="name">res company</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button string="Get token Zalo" type="object" name="get_token_zalo_api" class="oe_highlight" groups="base.group_no_one"/>
+                    </header>
+                </xpath>
+
+                <xpath expr="//page[@name='general_info']" position="after">
+                    <page string="Zalo API" name="zalo_api">
+                        <group>
+                            <group>
+                                <field name="url_get_token_api_zalo"/>
+                                <field name="app_id"/>
+                                <field name="zalo_token"/>
+                            </group>
+                            <group>
+                                <field name="secret_key_zalo"/>
+                                <field name="zalo_refresh_token"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_message_zalo_compose,access_message_zalo_compose,model_message_zalo_compose,,1,1,1,1
+access_zalo_api,access_zalo_api,model_zalo_api,,1,1,1,1
+access_zalo_api_reponse,access_zalo_api_reponse,model_zalo_api_reponse,,1,1,1,1
+

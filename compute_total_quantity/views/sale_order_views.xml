@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_inherit_total_quantity_form_view" model="ir.ui.view">
+        <field name="name">sale.order.inherit.total.quantity.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tax_totals']" position="before">
+                <field name="count_total_product" groups="compute_total_quantity.group_view_total_quantity_on_sale_order"/>
+                <field name="count_total_qty" groups="compute_total_quantity.group_view_total_quantity_on_sale_order"/>
+                <field name="count_delivered_qty" groups="compute_total_quantity.group_view_total_quantity_on_sale_order"/>
+                <field name="count_invoiced_qty" groups="compute_total_quantity.group_view_total_quantity_on_sale_order"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

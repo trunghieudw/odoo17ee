@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="esms_api_transaction_form_view" model="ir.ui.view">
+        <field name="name">esms.api.transaction.form.view</field>
+        <field name="model">esms.api.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="sms_sequence"/>
+                        <h1>
+                            <field name="sms_sequence"/>
+                        </h1>
+                        <label for="esms_id" string="E-SMS-ID"/>
+                        <h3>
+                            <field name="esms_id"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <field name="url"/>
+                        <field name="method"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="sys_status"/>
+                            <field name="body"/>
+                        </group>
+                        <group>
+                            <field name="esms_status"/>
+                            <field name="response"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="esms_api_transaction_tree_view" model="ir.ui.view">
+        <field name="name">esms.api.transaction.tree.view</field>
+        <field name="model">esms.api.transaction</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="create_date"/>
+                <field name="sms_sequence"/>
+                <field name="esms_id"/>
+                <field name="url"/>
+                <field name="method"/>
+                <field name="body" optional="hide"/>
+                <field name="sys_status"/>
+                <field name="esms_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="esms_api_transaction_search_view" model="ir.ui.view">
+        <field name="name">esms.api.transaction.search.view</field>
+        <field name="model">esms.api.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="create_date"/>
+                <field name="esms_id"/>
+                <field name="sys_status"/>
+                <field name="esms_status"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="esms_api_transaction_action" model="ir.actions.act_window">
+        <field name="name">E-SMS Transaction</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esms.api.transaction</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('esms_api_transaction_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('esms_api_transaction_form_view')})]"/>
+        <field name="search_view_id" ref="esms_api_transaction_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new API Transaction.
+            </p>
+        </field>
+    </record>
+</odoo>

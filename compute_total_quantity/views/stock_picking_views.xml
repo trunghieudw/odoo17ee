@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_inherit_total_quantity_form_view" model="ir.ui.view">
+        <field name="name">stock.picking.inherit.total.quantity.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='operations']/field[@name='move_ids_without_package']" position="after">
+                <group  groups="compute_total_quantity.group_view_total_quantity_on_delivery_order"
+                        name="note_group" col="6" class="mt-2 mt-md-0">
+                    <group colspan="4">
+                    </group>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <field name="count_total_product"/>
+                        <field name="count_total_demand"/>
+                        <field name="count_total_reserved" invisible="state == 'done'" />
+                        <field name="count_total_done"/>
+                    </group>
+                    <div class="oe_clear"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

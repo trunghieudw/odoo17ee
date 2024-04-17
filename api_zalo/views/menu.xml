@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_api" name="API" parent="base.menu_custom" sequence="30"/>
+        <menuitem name="Zalo API Reponse" id="zalo_api_menu" parent="menu_api" action="zalo_api_reponse_act_window"/>
+    </data>
+</odoo>

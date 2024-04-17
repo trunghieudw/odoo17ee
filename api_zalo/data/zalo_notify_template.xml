@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        muc 7-->
+        <record id="sale_order_complete_notify" model="mail.template">
+            <field name="name">Thông báo đơn hàng hoàn thành</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="subject">Cảm ơn Quý khách đã đặt bánh tại FRIENDSHIP</field>
+                <field name="partner_to">${object.partner_id.id}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Cảm ơn Quý khách
+                        <strong>
+                            <t t-out="object.partner_id.name or ''"></t>
+                        </strong>
+                        đã đặt bánh tại FRIENDSHIP vào ngày
+                        <strong>
+                            <t t-esc="object.date_order.strftime('%d/%m/%Y') or ''"></t>
+                        </strong>
+                        <br/>
+                        <br/>
+                        Để cảm ơn quý khách, <strong>FRIENDSHIP</strong> gửi tặng mã giảm giá 40.000đ cho lần đặt hàng
+                        tiếp theo. Vui lòng theo dõi Zalo của <strong>Friendship</strong> và chụp lại màn hình này khi
+                        đặt bánh lần sau.
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!--        muc 6-->
+        <record id="stock_picking_complete_notify" model="mail.template">
+            <field name="name">Tài xế đang trên đường đến</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="email_from">{{object.company_id.email}}</field>
+            <field name="subject">Tài xế đang trên đường đến</field>
+            <field name="partner_to">{{object.partner_id.id}}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Đơn hàng
+                        <strong>
+                            <t t-out="object.origin or ''"></t>
+                        </strong>
+                        đang trên đường giao đến địa chỉ:
+                        <strong>
+                            <t t-out="object.partner_id.street or ''"></t>
+                        </strong>
+                        bởi tài xế
+                        <strong>
+                            <t t-out="object.user_id.name or ''"></t>
+                        </strong>
+                        <br/>
+                        <br/>
+                        Tài xế của chúng tôi sẽ liên hệ với bạn trong ít phút nữa, vui lòng lưu ý điện thoại để nhận
+                        bánh. Nếu Quý khách chọn hình thức thanh toán COD vui lòng chuẩn bị tiền để thanh toán cho đơn
+                        hàng.
+                        <br/>
+                        <br/>
+                        Để theo dõi thông tin đơn hàng Quý khách có thể bấm nút Quan Tâm trên tin nhắn này. Cảm ơn quý
+                        khách đã đặt bánh tại FRIENDSHIP
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!--        muc 3-->
+        <record id="sale_order_decor_notify" model="mail.template">
+            <field name="name">Bánh đã được trang trí xong</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="subject">Bánh đã được trang trí xong</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="body_html" type="html">
+                <style>.table tr td th{
+                    border: 1px solid black;
+                    border-style: solid;
+                    border-collapse: collapse;
+                    vertical-align: middle;
+                    }
+                </style>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Xin chào Quý khách
+                        <strong>
+                            <t t-out="object.partner_id.name or ''"></t>
+                        </strong>
+                        <br/>
+                        <br/>
+                        Sản phẩm:
+                        <table class='table table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center">STT</th>
+                                    <th style="text-align:center">Tên sản phẩm</th>
+                                    <th style="text-align:center">Đơn giá</th>
+                                    <th style="text-align:center">Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="object.order_line" t-as="line">
+                                    <td style="text-align:center">
+                                        <span t-esc="line_index + 1"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line.product_id.name"/>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <t t-esc="line.price_unit"/>
+                                    </td>
+                                    <td style="text-align:center">
+                                        <t t-esc="line.product_uom_qty"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        trong đơn hàng
+                        <strong>
+                            <t t-out="object.name or ''"></t>
+                        </strong>
+                        đã được trang trí hoàn tất. Bánh sẽ được giao đến bạn theo giờ đã hẹn trước là
+                        <strong>
+                            <t t-out="object.commitment_date or ''"></t>
+                        </strong>
+                        Vui lòng lưu ý điện thoại liên lạc với người giao hàng để nhận bánh đúng giờ. Nếu có nhu cầu
+                        nhận bánh sớm hơn vui lòng báo lại cho nhân viên tư vấn hoặc nhắn tin trực tiếp tại ZALO này.
+                        <br/>
+                        <br/>
+                        Để theo dõi thông tin đơn hàng Quý khách có thể bấm nút Quan Tâm trên tin nhắn này. Kính chúc
+                        Quý khách một bữa tiệc trọn vẹn và hạnh phúc
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!--        muc 2-->
+        <record id="sale_order_confirm_notify" model="mail.template">
+            <field name="name">Thông tin đơn hàng</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="email_from">{{object.company_id.email}}</field>
+            <field name="subject">Thông tin đơn hàng {{object.name}}</field>
+            <field name="partner_to">{{object.partner_id.id}}</field>
+            <field name="body_html" type="html">
+                <style>.table tr td th{
+                    border: 1px solid black;
+                    border-style: solid;
+                    border-collapse: collapse;
+                    vertical-align: middle;
+                    }
+                </style>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Cảm ơn quý khách
+                        <strong>
+                            <t t-out="object.partner_id.name or ''"></t>
+                        </strong>
+                        đã đặt bánh tại FRIENDSHIP CAKE &amp; GIFT
+                        <br/>
+                        Mã đơn hàng:
+                        <t t-out="object.name or ''"></t>
+                        <br/>
+                        <br/>
+                        Sản phẩm:
+                        <table class='table table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center">STT</th>
+                                    <th style="text-align:center">Tên sản phẩm</th>
+                                    <th style="text-align:center">Đơn giá</th>
+                                    <th style="text-align:center">Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="object.order_line" t-as="line">
+                                    <td style="text-align:center">
+                                        <span t-esc="line_index + 1"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line.product_id.name"/>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <t t-esc="line.price_unit"/>
+                                    </td>
+                                    <td style="text-align:center">
+                                        <t t-esc="line.product_uom_qty"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        Tổng thành tiền:
+                        <t t-esc="object.amount_total"/>
+                        <br/>
+                        Ngày giờ hẹn giao bánh:
+                        <t t-out="object.commitment_date or ''"></t>
+                        <br/>
+                        Hình thức thanh toán:
+                        <t t-out="object.payment_term_id.name or ''"></t>
+                        <br/>
+                        <br/>
+                        Chúng tôi sẽ gửi ảnh bánh sau khi hoàn thành cho Quý khách qua Zalo này. Xin vui lòng bấm nút
+                        QUAN TÂM để có thể nhận được thông tin sớm nhất.
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+        <!--        <record id="sale_order_invoice_notify" model="mail.template">-->
+        <!--            <field name="name">Thông báo hoá đơn</field>-->
+        <!--            <field name="model_id" ref="sale.model_sale_order"/>-->
+        <!--            <field name="email_from">${object.company_id.email}</field>-->
+        <!--            <field name="subject">Thông báo hoá đơn ${object.name}</field>-->
+        <!--            <field name="partner_to">${object.partner_id.id}</field>-->
+        <!--            <field name="body_html" type="html">-->
+        <!--                <div style="margin: 0px; padding: 0px;">-->
+        <!--                    <p style="margin: 0px; padding: 0px; font-size: 13px;">-->
+        <!--                        <strong>Dear ${object.partner_id.name}!</strong>-->
+        <!--                        % if object.partner_id.parent_id:-->
+        <!--                        (${object.partner_id.parent_id.name})-->
+        <!--                        % endif-->
+        <!--                        <br/>-->
+        <!--                        <br/>-->
+        <!--                        Hoá đơn bán hàng của bạn đã được tạo thành công, Tổng số tiền là-->
+        <!--                        <strong><t t-out="object.amount_total or ''"></t></strong>-->
+        <!--                        <br/>-->
+        <!--                        <br/>-->
+        <!--                        Nếu đã thanh toán vui lòng bỏ qua tin nhắn này. Nếu Quý khách chưa thanh toán vui lòng tiền hành-->
+        <!--                        thanh toán theo thông tin chuyển khoản dưới đây:-->
+        <!--                        <br/>-->
+        <!--                        <br/>-->
+        <!--                        <strong>- STK:....</strong>-->
+        <!--                        <br/>-->
+        <!--                        <strong>- Ngân hàng: ACB - Ngân hàng thương mại cổ phần Á Châu</strong>-->
+        <!--                        <br/>-->
+        <!--                        <strong>- Chủ tài khoản: KIEU TUAN DUNG</strong>-->
+        <!--                        <br/>-->
+        <!--                        <br/>-->
+        <!--                        FRIENDSHIP cung cấp dịch vụ giao hàng và thu tiền tận nơi nếu Quý khách có yêu cầu. Quý khách có-->
+        <!--                        thể xem chi tiết hoá đơn và theo dõi tình trạng đơn hàng tại website của FRIENDSHIP. Trân trọng-->
+        <!--                        cảm ơn.-->
+        <!--                    </p>-->
+        <!--                </div>-->
+        <!--            </field>-->
+        <!--            <field name="auto_delete" eval="True"/>-->
+        <!--        </record>-->
+
+    </data>
+</odoo>

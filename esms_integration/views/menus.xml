@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem   id="menu_esms_api_root"
+                name="API Gateway"
+                parent="base.menu_custom"
+                sequence="999"
+    />
+
+    <menuitem   id="menu_esms_api"
+                name="E-SMS API"
+                parent="menu_esms_api_root"
+                action="esms_api_action"
+                sequence="1"
+    />
+
+    <menuitem   id="menu_esms_api_route"
+                name="E-SMS API Routes"
+                parent="menu_esms_api_root"
+                action="esms_api_route_action"
+                sequence="5"
+    />
+
+    <menuitem   id="menu_esms_api_transaction"
+                name="E-SMS Transaction"
+                parent="menu_esms_api_root"
+                action="esms_api_transaction_action"
+                sequence="10"
+    />
+
+</odoo>

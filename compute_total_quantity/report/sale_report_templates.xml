@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_saleorder_document_inherit_compute_quantity_product" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='so_total_summary']" position="before">
+            <div class="clearfix">
+                <div class="row">
+                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black">
+                                <td>
+                                    <strong>Products</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.count_total_product"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Quantity</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.count_total_qty"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Delivered</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.count_delivered_qty"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Invoiced</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.count_invoiced_qty"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

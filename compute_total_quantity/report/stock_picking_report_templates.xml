@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_picking_inherit_compute_quantity" inherit_id="stock.report_picking">
+        <xpath expr="//p[@t-field='o.note']" position="before">
+            <div class="clearfix">
+                <div class="row">
+                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black">
+                                <td>
+                                    <strong>Products</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.count_total_product"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Demand</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.count_total_demand"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Reserved</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.count_total_reserved"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Done</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="o.count_total_done"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

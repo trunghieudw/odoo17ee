@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="esms_api_form_view" model="ir.ui.view">
+        <field name="name">esms.api.form.view</field>
+        <field name="model">esms.api</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="env_current" invisible="1"/>
+                    <button name="%(esms_set_information_wizard_action)d"
+                            type="action"
+                            class="btn btn-primary"
+                            string="Set E-SMS Information"
+                    />
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="change_environment"
+                                type="object"
+                                class="oe_stat_button"
+                                string="Production"
+                                context="{'env_esms': 0}"
+                                invisible="env_current == '0'"
+                                icon="fa-cogs"
+                        />
+                        <button name="change_environment"
+                                type="object"
+                                class="oe_stat_button"
+                                string="Staging"
+                                context="{'env_esms': 1}"
+                                invisible="env_current == '1'"
+                                icon="fa-cogs"
+                        />
+                    </div>
+                    <field name="icon_image" widget='image' class="oe_avatar"/>
+                    <div class="oe_title">
+                        <field name="currency_id" invisible="1"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="domain" widget="url"/>
+                            <field name="summary"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="website" widget="url"/>
+                            <field name="balance"/>
+                            <field name="brand_name"/>
+                            <field name="api_key" readonly="1" widget="CopyClipboardChar"/>
+                            <field name="secret_key" readonly="1" widget="CopyClipboardChar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Routes">
+                            <field name="route_ids" widget="section_and_note_one2many" mode="tree">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="method"/>
+                                    <field name="route"/>
+                                    <field name="is_unicode" widget="boolean_toggle"/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </tree>
+                                <form>
+                                    <div class="oe_title">
+                                        <h1>
+                                            <field name="name" readonly="1"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <field name="route"/>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="code"/>
+                                            <field name="method"/>
+                                        </group>
+                                        <group>
+                                            <field name="header"/>
+                                            <field name="sms_type"/>
+                                            <field name="is_unicode" widget="boolean_toggle"/>
+                                            <field name="active" widget="boolean_toggle"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="esms_api_tree_view" model="ir.ui.view">
+        <field name="name">esms.api.tree.view</field>
+        <field name="model">esms.api</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="currency_id" invisible="1"/>
+                <field name="create_date"/>
+                <field name="create_uid"/>
+                <field name="name"/>
+                <field name="balance"/>
+                <field name="domain"/>
+                <field name="summary"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="esms_api_kanban_view" model="ir.ui.view">
+        <field name="name">esms.api.kanban.view</field>
+        <field name="model">esms.api</field>
+        <field name="arch" type="xml">
+            <kanban class="o_modules_kanban">
+                <field name="icon"/>
+                <field name="name"/>
+                <field name="domain"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <img t-attf-src="#{record.icon.value}" class="oe_module_icon" alt="Icon"/>
+                            <div class="oe_module_desc">
+                                <field name="currency_id" invisible="1"/>
+                                <h5 class="o_kanban_record_title" style="margin: 0px, padding: 0px;">
+                                    <div class="o_row">
+                                        <field name="name"/> - <i>Balance: <field name="balance"/></i>
+                                    </div>
+                                </h5>
+                                <p class="oe_module_name" style="margin: 0px, padding: 0px;">
+                                    <code>
+                                        <field name="website"/>
+                                    </code>
+                                </p>
+                                <p  style="margin: 0px, padding: 0px;">
+                                    <i style="font-size: 10px;">
+                                        <field name="summary"/>
+                                    </i>
+                                </p>
+                            </div>
+                        </div>
+                    </t>
+                  </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="esms_api_search_view" model="ir.ui.view">
+        <field name="name">esms.api.search.view</field>
+        <field name="model">esms.api</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="domain"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="esms_api_action" model="ir.actions.act_window">
+        <field name="name">API Gateway</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esms.api</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('esms_api_kanban_view')}),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('esms_api_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('esms_api_form_view')})]"/>
+        <field name="search_view_id" ref="esms_api_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new API Gateway.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="esms_api_route_form_view" model="ir.ui.view">
+        <field name="name">esms.api.routes.form.view</field>
+        <field name="model">esms.api.routes</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="header"/>
+                            <field name="method"/>
+                        </group>
+                        <group>
+                            <field name="sms_type"/>
+                            <field name="is_unicode" widget="boolean_toggle"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="route"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <record id="esms_api_route_tree_view" model="ir.ui.view">
+        <field name="name">esms.api.routes.tree.view</field>
+        <field name="model">esms.api.routes</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="create_uid"/>
+                <field name="name"/>
+                <field name="route"/>
+                <field name="method"/>
+                <field name="is_unicode" widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="esms_api_route_search_view" model="ir.ui.view">
+        <field name="name">esms.api.routes.search.view</field>
+        <field name="model">esms.api.routes</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="route"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="esms_api_route_action" model="ir.actions.act_window">
+        <field name="name">E-SMS API ROUTES</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esms.api.routes</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('esms_api_route_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('esms_api_route_form_view')})]"/>
+        <field name="search_view_id" ref="esms_api_route_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new E-SMS API Routes.
+            </p>
+        </field>
+    </record>
+</odoo>

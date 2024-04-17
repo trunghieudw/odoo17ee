@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="esms_api" model="esms.api">
+            <field name="name">E-SMS API</field>
+            <field name="code">esms_api</field>
+            <field name="domain">http://rest.esms.vn</field>
+            <field name="website">https://esms.vn</field>
+            <field name="brand_name">FS GIFT</field>
+            <field name="api_key">01A94AE49CC7219AD63CF5906F9BF4</field>
+            <field name="secret_key">1D9AE74638A9C1F6D253DBD4051D9E</field>
+            <field name="icon">/esms_integration/static/description/icon.png</field>
+            <field name="summary">Hệ thống tin nhắn SMS quảng cáo và chăm sóc khách hàng</field>
+        </record>
+    </data>
+</odoo>

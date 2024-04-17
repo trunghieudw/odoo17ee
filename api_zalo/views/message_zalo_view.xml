@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="message_zalo_compose_view_form" model="ir.ui.view">
+            <field name="name">message_zalo_compose_view_form</field>
+            <field name="model">message.zalo.compose</field>
+            <field name="arch" type="xml">
+                <form string="message zalo compose form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                            </group>
+                            <group>
+                                <field name="phone"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="message"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

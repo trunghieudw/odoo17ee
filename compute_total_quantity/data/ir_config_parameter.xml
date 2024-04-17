@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="last_modified_status_picking_note" model="ir.config_parameter">
+            <field name="key">last_modified_status_picking_note</field>
+            <field name="value">Phiếu {picking} sửa đổi trạng thái [{state}] vào lúc: {datetime}</field>
+        </record>
+    </data>
+</odoo>
