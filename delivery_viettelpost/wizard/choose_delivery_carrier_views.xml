@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="choose_delivery_carrier_view_form" model="ir.ui.view">
+        <field name="name">choose.delivery.carrier.form</field>
+        <field name="model">choose.delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.choose_delivery_carrier_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='carrier_id']" position="after">
+                <field name="viettelpost_national_type" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'" />
+                <field name="viettelpost_product_type" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'" />
+                <field name="viettelpost_default_service_type" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

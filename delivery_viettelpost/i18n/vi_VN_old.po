@@ -1,0 +1,244 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* delivery_viettelpost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-07 03:09+0000\n"
+"PO-Revision-Date: 2022-12-07 03:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_token
+msgid "Access token"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#, python-format
+msgid "Collect express fee"
+msgstr "Thu hộ tiền cước"
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#, python-format
+msgid "Collect express fee and price of goods."
+msgstr "Thu hộ tiền hàng và tiền cước"
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#, python-format
+msgid "Collect price of goods"
+msgstr "Thu hộ tiền hàng"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__customer_id
+msgid "Customer ID"
+msgstr "ID khách hàng"
+
+#. module: delivery_viettelpost
+#: model:ir.model,name:delivery_viettelpost.model_choose_delivery_carrier
+msgid "Delivery Carrier Selection Wizard"
+msgstr "Hướng dẫn chọn dịch vụ giao hàng"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model_terms:ir.ui.view,arch_db:delivery_viettelpost.view_delivery_carrier_form_with_provider_viettelpost
+msgid "Get Access Token"
+msgstr "Lấy access token"
+
+#. module: delivery_viettelpost
+#: model_terms:ir.ui.view,arch_db:delivery_viettelpost.view_delivery_carrier_form_with_provider_viettelpost
+msgid "Get Stores"
+msgstr "Tải danh sách cửa hàng"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__group_address_id
+msgid "Group Address ID"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__id
+msgid "ID"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_passwd
+msgid "Password"
+msgstr "Mật khẩu"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_print_token
+msgid "Print token"
+msgstr "Mã in"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr "Nhà cung cấp"
+
+#. module: delivery_viettelpost
+#: model:ir.model,name:delivery_viettelpost.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Phương thức vận chuyển"
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/viettelpost_request.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/viettelpost_request.py:0
+#, python-format
+msgid ""
+"The address of your company is missing or wrong.\n"
+"(Missing field(s) : %s)"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/viettelpost_request.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/viettelpost_request.py:0
+#, python-format
+msgid ""
+"The address of your receiver is missing or wrong.\n"
+"(Missing field(s) : %s)"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model,name:delivery_viettelpost.model_stock_picking
+msgid "Transfer"
+msgstr "Điều chuyển"
+
+#. module: delivery_viettelpost
+#: code:addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#: code:addons/vmax_addons/delivery_viettelpost/models/delivery_viettelpost.py:0
+#, python-format
+msgid "Uncollect money"
+msgstr "Không thu hộ"
+
+#. module: delivery_viettelpost
+#: model:product.product,uom_name:delivery_viettelpost.product_product_delivery_viettelpost
+#: model:product.template,uom_name:delivery_viettelpost.product_product_delivery_viettelpost_product_template
+msgid "Units"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_username
+msgid "Username"
+msgstr "Tên đăng nhập"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields.selection,name:delivery_viettelpost.selection__delivery_carrier__delivery_type__viettelpost
+msgid "Viettel Post"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model,name:delivery_viettelpost.model_viettelpost_store
+msgid "Viettel Post Store"
+msgstr "Thông tin người gửi"
+
+#. module: delivery_viettelpost
+#: model:delivery.carrier,name:delivery_viettelpost.delivery_carrier_viettelpost_default
+msgid "ViettelPost"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model_terms:ir.ui.view,arch_db:delivery_viettelpost.view_delivery_carrier_form_with_provider_viettelpost
+msgid "ViettelPost Configuration"
+msgstr "Cấu hình ViettelPost"
+
+#. module: delivery_viettelpost
+#: model:product.product,name:delivery_viettelpost.product_product_delivery_viettelpost
+#: model:product.template,name:delivery_viettelpost.product_product_delivery_viettelpost_product_template
+msgid "ViettelPost Delivery Service"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_choose_delivery_carrier__viettelpost_national_type
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_national_type
+msgid "ViettelPost National Type"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_order_payment
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_stock_picking__viettelpost_order_payment
+msgid "ViettelPost Order Payment"
+msgstr "Kiểu đơn hàng"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_choose_delivery_carrier__viettelpost_product_type
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_product_type
+msgid "ViettelPost Product Type"
+msgstr "Loại hàng hóa"
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_choose_delivery_carrier__viettelpost_default_service_type
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_delivery_carrier__viettelpost_default_service_type
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_stock_picking__viettelpost_default_service_type
+msgid "ViettelPost Service Type"
+msgstr "Loại dịch vụ"
+
+#. module: delivery_viettelpost
+#: model_terms:ir.ui.view,arch_db:delivery_viettelpost.view_picking_form
+msgid "ViettelPost print"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_stock_picking__viettelpost_store_id
+msgid "Viettelpost Store"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__address
+msgid "address"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__name
+msgid "name"
+msgstr ""
+
+#. module: delivery_viettelpost
+#: model:ir.model.fields,field_description:delivery_viettelpost.field_viettelpost_store__phone
+msgid "phone"
+msgstr ""

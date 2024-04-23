@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                    <button string="ViettelPost print" type="object" name="action_open_viettelpost_print" invisble = "state != 'done'"/>
+            </xpath>
+            <xpath expr="//field[@name='carrier_id']" position='after'>
+                <field name="viettelpost_product_type" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'"/>
+                <field name="viettelpost_store_id" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'" />
+                <field name="viettelpost_default_service_type" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'"/>
+                <field name="viettelpost_order_payment" invisble = "delivery_type != 'viettelpost'"  required = "delivery_type ==  'viettelpost'"/>
+                <field name="carrier_tracking_url" invisble = "delivery_type != 'viettelpost'" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
