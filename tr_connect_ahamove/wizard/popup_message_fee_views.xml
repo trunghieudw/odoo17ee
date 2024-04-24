@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Message Fee Wizard -->
+        <record id="message_fee_wizard_form" model="ir.ui.view">
+            <field name="name">popup.message.fee</field>
+            <field name="model">popup.message.fee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div>
+                        <label for="fee"/>
+                        <field name="fee" readonly="True"/>
+                        <span class="oe_inline"> VND</span>
+                    </div>
+<!--                    <div>-->
+<!--                        <label for="percentage_fee"/>-->
+<!--                        <field name="percentage_fee" class="oe_inline"/>-->
+<!--                        <span class="oe_inline"> %</span>-->
+<!--                    </div>-->
+                    <footer>
+                        <button name="action_add_fee_ship" string="Add Fee Ship" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string='Cancel' class='btn-default' special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="seq_deli_boys" model="ir.sequence">
+            <field name="name">Delivery Boys Sequence</field>
+            <field name="code">delivery.boys</field>
+            <field name="prefix">DB</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

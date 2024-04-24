@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="booking_ahamove_wizard_form_view" model="ir.ui.view">
+        <field name="name">booking.ahamove.wizard.form.view</field>
+        <field name="model">booking.ahamove.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h1><field name="deli_order_id" force_save="1"/></h1>
+                    <h3><field name="deli_carrier_id"/></h3>
+                </div>
+                <group>
+                    <group>
+                        <field name="warehouse_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="sender_phone" widget="phone"/>
+                        <label for="sender_street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="sender_street" class="o_address_street" placeholder="Street"/>
+                            <field name="sender_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sender_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sender_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                        </div>
+                        <field name="service_type"/>
+                        <field name="payment_method"/>
+                        <field name="payment"/>
+                        <field name="merchandises"/>
+                        <field name="no_of_package"/>
+                    </group>
+                    <group>
+                        <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="receiver_phone" widget="phone"/>
+                        <label for="receiver_street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                            <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="receiver_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                        </div>
+                        <field name="cod"/>
+                        <field name="is_back_to_pickup_point" widget="boolean_toggle"/>
+                        <field name="note"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Booking" type="object" name="action_booking_ahamove" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_ahamove_wizard_action" model="ir.actions.act_window">
+        <field name="name">Booking ahamove</field>
+        <field name="res_model">booking.ahamove.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

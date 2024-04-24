@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="purchasing_representative_user_id" model="ir.config_parameter">
+            <field name="key">purchasing_representative_user_id</field>
+            <field name="value">57</field>
+        </record>
+
+        <record id="viettelpost_vat" model="ir.config_parameter">
+            <field name="key">viettelpost_vat</field>
+            <field name="value">0104093672</field>
+        </record>
+
+        <record id="ahamove_vat" model="ir.config_parameter">
+            <field name="key">ahamove_vat</field>
+            <field name="value">0313506115</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="complete_delivery_boys_wizard_form_view" model="ir.ui.view">
+        <field name="name">complete.delivery.boys.wizard.view</field>
+        <field name="model">complete.delivery.boys.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h1><field name="deli_boy_id" force_save="1"/></h1>
+                </div>
+                <group>
+                    <field name="order_image" widget="image"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Confirm" type="object" name="action_done_delivery_boys" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="complete_delivery_boys_wizard_action" model="ir.actions.act_window">
+        <field name="name">Confirm Done Delivery</field>
+        <field name="res_model">complete.delivery.boys.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

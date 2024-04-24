@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_inherited_custom" model="ir.ui.view">
+        <field name="name">stock_picking.picking.form.custom</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="service_ahamove"/>
+                <field name="order_ahamove"/>
+            </xpath>
+            <xpath expr="//header/button[@name='action_cancel']" position="after">
+                <button name="booking_ahamove" string="Order To Ahamove" type="object" class="oe_highlight" invisible="order_ahamove != ''"/>
+                <button name="open_booking_ahamove" string="Open Booking Ahamove" type="object" class="oe_highlight" invisible="order_ahamove != ''"/>
+                <button name="cancel_booking_ahamove" string="Cancel Ahamove" type="object" class="oe_highlight" invisible="order_ahamove != ''"/>
+            </xpath>
+            <xpath expr="//page[@name='note']" position="after">
+<!--                <page string="Ahamove" name="ahamove">-->
+<!--                    <field name="tr_ahamove_id" string="Ahamove Order"/>-->
+<!--                </page>-->
+                <page id="ahamove" string="Ahamove">
+                    <field name="tr_ahamove_ids"
+                           widget="section_and_note_one2many"
+                           mode="tree">
+                        <tree string="Ahamove Items" default_order="id" create="false">
+
+                            <!-- Displayed fields -->
+                            <field name="name"/>
+                            <field name="tr_supplier_name"/>
+                            <field name="tr_supplier_id"/>
+                            <field name="tr_address_sender"/>
+                            <field name="tr_address_receiver"/>
+                            <field name="tr_cod"/>
+                            <field name="tr_total_fee"/>
+                            <field name="tr_fee"/>
+                            <field name="tr_status"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <field name="name" readonly="1"/>
+                                    <field name="tr_picking_id" readonly="1"/>
+                                    <field name="tr_supplier_name" readonly="1"/>
+                                    <field name="tr_supplier_id" readonly="1"/>
+                                    <field name="shared_link" widget="url" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="tr_address_sender" readonly="1"/>
+                                    <field name="tr_address_receiver" readonly="1"/>
+                                    <field name="tr_cod" readonly="1"/>
+                                    <field name="tr_total_fee" readonly="1"/>
+                                    <field name="tr_fee" readonly="1"/>
+                                    <field name="tr_status" readonly="1"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

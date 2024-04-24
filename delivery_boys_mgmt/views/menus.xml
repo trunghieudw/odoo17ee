@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_delivery_boys_mgmt"
+              name="Delivery Boys Management"
+              sequence="1"
+              groups="delivery_boys_mgmt.group_delivery_boys,delivery_boys_mgmt.group_delivery_boys_manager"
+              parent="delivery_extend.menu_delivery_management"
+              action="delivery_boys_action_view"
+    />
+</odoo>

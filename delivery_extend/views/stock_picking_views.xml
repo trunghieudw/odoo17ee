@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stock_picking_extend_form_view_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.extend.form.view.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_validate']" position="before">
+                <button name="%(stock_picking_put_in_pack_wizard_action)d"
+                        type="action"
+                        string="Validate V2"
+                        class="btn btn-primary"
+                        invisible="picking_type_code != 'outgoing' or state not in ['confirmed', 'assigned', 'waiting']"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button string="Delivery Book" type="object" invisible="not deli_book_id" name="action_view_delivery_book" class="oe_stat_button" icon="fa-pencil-square-o"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button string="Assign to delivery" type="action" class="btn btn-primary" name="%(select_deli_carrier_wizard_acton)d"/>
+            </xpath>
+            <field name="name" position="after">
+                <field name="deli_book_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>
+

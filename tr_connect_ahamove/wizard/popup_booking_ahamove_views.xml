@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Popup booking ahamove-->
+        <record id="popup_booking_ahamove_wizard_form" model="ir.ui.view">
+            <field name="name">popup.booking.ahamove</field>
+            <field name="model">popup.booking.ahamove</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="service_ahamove" string="Dịch vụ Ahamove"/>
+                        <field name="payment_method"/>
+                        <field name="cod"/>
+                        <field name="warehouse_id"/>
+                        <field name="merchandises"/>
+                        <field name="back"/>
+                    </group>
+                    <group>
+                        <field name="phone" string="Số điện thoại"/>
+                        <field name="mobile" string="Số di động"/>
+                        <field name="street" string="Địa chỉ"/>
+                        <field name="payment"/>
+                        <field name="note"/>
+                    </group>
+                    <footer>
+                        <button name="confirm_booking_ahamove" string="Booking Ahamove" type="object" default_focus="1" class="oe_highlight"/>
+                        <button string='Cancel' class='btn-default' special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

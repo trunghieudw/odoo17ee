@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tr_ahamove_form_inherited_custom" model="ir.ui.view">
+        <field name="name">tr.ahamove.form</field>
+        <field name="model">tr.ahamove</field>
+        <field name="arch" type="xml">
+            <form string="Shipping Ahamove">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="shared_link" invisible="1"/>
+                            <field name="tr_picking_id"/>
+                            <field name="tr_total_fee"/>
+                            <field name="tr_fee"/>
+                        </group>
+                        <group>
+                            <field name="tr_supplier_name"/>
+                            <field name="tr_supplier_id"/>
+                            <field name="tr_cod"/>
+                            <field name="tr_status"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tr_ahamove_tree" model="ir.ui.view">
+        <field name="name">tr.ahamove.tree</field>
+        <field name="model">tr.ahamove</field>
+        <field name="arch" type="xml">
+            <tree string="Ahamove" multi_edit="1">
+                <field name="name" string="Name"/>
+                <field name="tr_supplier_name"/>
+                <field name="tr_supplier_id"/>
+                <field name="tr_picking_id"/>
+                <field name="tr_total_fee"/>
+                <field name="tr_fee"/>
+                <field name="tr_code"/>
+                <field name="tr_status"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

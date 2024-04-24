@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="viettelpost_webhook" model="res.partner">
+        <field name="name">Viettelpost Webhook Service</field>
+        <field name="company_type">person</field>
+        <field name="partner_code">VTP</field>
+        <field name="type">webhook_service</field>
+    </record>
+
+    <record id="ahamove_webhook" model="res.partner">
+        <field name="name">Ahamove Webhook Service</field>
+        <field name="company_type">person</field>
+        <field name="partner_code">AHAMOVE</field>
+        <field name="type">webhook_service</field>
+    </record>
+</odoo>

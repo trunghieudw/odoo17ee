@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_base_custom" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.base.custom</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='companies_setting']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="auto_connect_ahamove"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="auto_connect_ahamove"/>
+                        <div class="content-group" invisible="not auto_connect_ahamove" required="auto_connect_ahamove">
+                            <div class="mt16">
+                                <label for="api_key_ahamove"/>
+                                <field name="api_key_ahamove" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <div class="content-group" invisible="not auto_connect_ahamove" required="auto_connect_ahamove">
+                            <div class="mt16">
+                                <label for="mobile"/>
+                                <field name="mobile" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <div class="content-group" invisible="not auto_connect_ahamove">
+                            <div class="mt16">
+                                <label for="promo_code"/>
+                                <field name="promo_code" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <label for="percentage_fee"/>
+                                <field name="percentage_fee" class="oe_inline"/>
+                                <span class="oe_inline"> %</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="payment_method"/>
+<!--                        <div class="text-muted">-->
+<!--                            Let your customers log in to see their documents-->
+<!--                        </div>-->
+                        <div class="mt8">
+                            <field name="payment_method" class="o_light_label" widget="radio" required="True"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="sale_margin_sale_order_custom">
+        <field name="name">sale.order.margin.view.form.custom</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="payment_method"/>
+                <field name="service_ahamove"/>
+            </xpath>
+<!--            Long Duong Nhat Comment 2023-07-07, Don't Use-->
+<!--            <xpath expr="//group[@name='note_group']" position="before">-->
+<!--                <div class="oe_right">-->
+<!--                    <button string="Shipping Fee" name="calculated_shipping_fee" type="object"/>-->
+<!--                </div>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tr_ahamove,tr_ahamove,model_tr_ahamove,,1,1,1,0
+access_popup_message,popup_message,model_popup_message,,1,1,1,0
+access_popup_message_fee,popup_message_fee,model_popup_message_fee,,1,1,1,0
+access_popup_booking_ahamove,popup_booking_ahamove,model_popup_booking_ahamove,,1,1,1,0

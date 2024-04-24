@@ -10,13 +10,6 @@ class ResPartner(models.Model):
     country_id = fields.Many2one('res.country', string='Country', ondelete='restrict', default=lambda self: self.env.ref('base.vn'))
     partner_address = fields.Char('Address', compute='_compute_partner_address')
 
-    @api.depends('is_company', 'name', 'parent_id.display_name', 'type', 'company_name')
-    def _compute_display_name(self):
-        diff = dict(show_address=None, show_address_only=None, show_email=None, html_format=None, show_vat=None, show_partner_address=None, show_phone=None, show_mobile=None)
-        names = dict(self.with_context(**diff).name_get())
-        for partner in self:
-            partner.display_name = names.get(partner.id)
-
     def _get_name(self):
         res = super(ResPartner, self)._get_name()
         if self._context.get('show_partner_address') and self.partner_address:

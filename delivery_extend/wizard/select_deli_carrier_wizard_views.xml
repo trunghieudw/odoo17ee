@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="select_deli_carrier_wizard_form_view" model="ir.ui.view">
+        <field name="name">select.delivery.carrier.wizard.form.view</field>
+        <field name="model">select.delivery.carrier.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h1><field name="deli_order_id" force_save="1"/></h1>
+                </div>
+                <group>
+                    <field name="deli_carrier_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Next" type="object" name="action_fill_shipment_info" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="select_deli_carrier_wizard_acton" model="ir.actions.act_window">
+        <field name="name">Select Delivery Carrier</field>
+        <field name="res_model">select.delivery.carrier.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

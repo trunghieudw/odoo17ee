@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="delivery_book_form_view" model="ir.ui.view">
+        <field name="name">delivery.book.form.view</field>
+        <field name="model">delivery.book</field>
+        <field name="arch" type="xml">
+            <form string="Delivery boy" create="0">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="deli_order_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        </h1>
+                        <h4>
+                            <field name="sale_id"/>
+                        </h4>
+                        <field name="carrier_type" invisible="1"/>
+                    </div>
+                    <group invisible="carrier_type != 'viettelpost'" >
+                        <group>
+                            <field name="carrier_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="warehouse_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_phone"/>
+                            <label for="sender_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="sender_street" class="o_address_street" placeholder="Street"/>
+                                <field name="sender_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="store_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="service_type"/>
+                            <field name="order_payment"/>
+                            <field name="product_type"/>
+                            <field name="national_type"/>
+                            <field name="fee_ship"/>
+                            <field name="num_of_package"/>
+                            <field name="cod"/>
+                            <field name="weight"/>
+                        </group>
+                        <group>
+                            <field name="bl_code"/>
+                            <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="receiver_phone"/>
+                            <label for="receiver_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                                <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="money_total"/>
+                            <field name="money_fee"/>
+                            <field name="money_collection_fee"/>
+                            <field name="money_vat"/>
+                            <field name="money_other_fee"/>
+                            <field name="state" style="color: red; font-size: 13px;"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <group invisible="carrier_type != 'ahamove'">
+                        <group>
+                            <field name="carrier_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="warehouse_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_phone"/>
+                            <label for="sender_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="sender_street" class="o_address_street" placeholder="Street"/>
+                                <field name="sender_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="service_type_aha"/>
+                            <field name="payment_method_aha"/>
+                            <field name="payment_aha"/>
+                            <field name="merchandises_aha"/>
+                            <field name="fee_ship"/>
+                            <field name="num_of_package"/>
+                            <field name="cod"/>
+                        </group>
+                        <group>
+                            <field name="bl_code"/>
+                            <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="receiver_phone"/>
+                            <label for="receiver_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                                <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="state" style="color: red; font-size: 13px;"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <group invisible="carrier_type != 'deli_boys' ">
+                        <group>
+                            <field name="carrier_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="warehouse_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_phone" widget="phone"/>
+                            <field name="fee_ship"/>
+                            <field name="num_of_package"/>
+                            <field name="cod"/>
+                        </group>
+                        <group>
+                            <field name="bl_code"/>
+                            <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="receiver_phone" widget="phone"/>
+                            <label for="receiver_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                                <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_province_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="state" style="color: red; font-size: 13px;"/>
+                            <field name="weight"/>
+                            <field name="cus_receivable"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="tracking_link" widget="url"/>
+                    </group>
+                    <notebook>
+                        <page string="Json Create">
+                            <field name="json_create"/>
+                        </page>
+                        <page string="Json Webhook">
+                            <field name="json_webhook"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="delivery_book_tree_view" model="ir.ui.view">
+        <field name="name">delivery.book.tree.view</field>
+        <field name="model">delivery.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="carrier_id"/>
+                <field name="deli_order_id"/>
+                <field name="bl_code"/>
+                <field name="sender_id"/>
+                <field name="receiver_id"/>
+                <field name="fee_ship"/>
+                <field name="num_of_package"/>
+                <field name="cod"/>
+                <field name="weight"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="delivery_book_search_view" model="ir.ui.view">
+        <field name="name">delivery.book.search.view</field>
+        <field name="model">delivery.book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="bl_code"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="delivery_book_action_view">
+        <field name="name">Delivery Book</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">delivery.book</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('delivery_book_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('delivery_book_form_view')})]"/>
+        <field name="search_view_id" ref="delivery_book_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new delivery book.
+            </p>
+        </field>
+    </record>
+
+</odoo>

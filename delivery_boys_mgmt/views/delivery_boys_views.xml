@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="delivery_boys_form_view" model="ir.ui.view">
+        <field name="name">delivery.boys.form.view</field>
+        <field name="model">delivery.boys</field>
+        <field name="arch" type="xml">
+            <form string="Delivery boy" create="0">
+                <header>
+                    <button name="action_confirm"
+                            type="object"
+                            class="btn btn-primary"
+                            string="Confirm"
+                    />
+                    <button name="action_in_process"
+                            type="object"
+                            class="btn btn-primary"
+                            string="In Process"
+                    />
+                    <button name="action_complete"
+                            type="object"
+                            class="btn btn-success"
+                            string="Complete"
+                    />
+                    <button name="action_refuse"
+                            type="object"
+                            class="btn btn-danger"
+                            string="Refuse"
+                    />
+                    <button name="action_cancel"
+                            type="object"
+                            class="btn"
+                            string="Cancel"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="new,assigned,in_process,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <div class="oe_title">
+                            <h1><field name="deli_order_id" force_save="1"/></h1>
+                            <h4><field name="sale_id"/></h4>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="warehouse_id"/>
+                            <field name="deli_boy_id"/>
+                            <field name="deli_phone" widget="phone"/>
+                            <field name="deli_order_id"/>
+                            <field name="sale_id"/>
+                            <field name="fee_ship"/>
+                            <field name="cod"/>
+                            <field name="num_of_package"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="partner_phone" widget="phone"/>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" class="o_address_street" placeholder="Street"/>
+                                <field name="ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="city_id" class="o_address_zip" placeholder="City" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="cus_receivable"/>
+                            <label for="est_deli_time" string="Estimate Deli"/>
+                            <div class="o_row">
+                                <field name="est_deli_time" class="oe_inline"/>
+                                <span><field name="hours_uom_name"/></span>
+                            </div>
+                            <label for="weight" string="Weight"/>
+                            <div class="o_row">
+                                <field name="weight" class="oe_inline"/>
+                                <span><field name="gram_uom_name"/></span>
+                            </div>
+                            <field name="note"/>
+                            <field name="cancel_reason"  invisible="state != 'cancel'"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="delivery_boys_tree_view" model="ir.ui.view">
+        <field name="name">delivery.boys.tree.view</field>
+        <field name="model">delivery.boys</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == 'cancel'"
+                  decoration-primary="state == 'in_process'"
+                  decoration-success="state == 'completed'">
+                <field name="create_date"/>
+                <field name="deli_order_id"/>
+                <field name="name"/>
+                <field name="deli_boy_id"/>
+                <field name="partner_id"/>
+                <field name="fee_ship"/>
+                <field name="cod"/>
+                <field name="num_of_package"/>
+                <field name="cus_receivable"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="delivery_boys_pivot_view">
+        <field name="name">delivery.boys.pivot.view</field>
+        <field name="model">delivery.boys</field>
+        <field name="arch" type="xml">
+            <pivot string="Delivery Boys" sample="1">
+                <field name="create_date" type="row"/>
+                <field name="deli_boy_id" type="col"/>
+                <field name="cod" type="measure"/>
+                <field name="fee_ship" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="delivery_boys_search_view" model="ir.ui.view">
+        <field name="name">delivery.boys.search.view</field>
+        <field name="model">delivery.boys</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="deli_boy_id"/>
+                <field name="partner_id"/>
+                <field name="deli_order_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="delivery_boys_action_view">
+        <field name="name">Delivery Boys</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">delivery.boys</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('delivery_boys_tree_view')}),
+            (0, 0, {'view_mode': 'pivot', 'view_id': ref('delivery_boys_pivot_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('delivery_boys_form_view')})]"/>
+        <field name="search_view_id" ref="delivery_boys_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new delivery boy.
+            </p>
+        </field>
+    </record>
+</odoo>
