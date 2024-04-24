@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="google_map_token" model="ir.config_parameter">
+            <field name="key">google_map_token</field>
+            <field name="value">AIzaSyAV6PuhUUsU287fWvz830Nfui1K8-stVKA</field>
+        </record>
+
+        <record id="google_map_api_calculate_distance" model="ir.config_parameter">
+            <field name="key">google_map_api_cal_distance</field>
+            <field name="value">https://maps.googleapis.com/maps/api/directions/json?origin={origin}&amp;destination={destination}&amp;key={token}</field>
+        </record>
+
+        <record id="ahamove_api_est_fee" model="ir.config_parameter">
+            <field name="key">ahamove_api_est_fee</field>
+            <field name="value">https://api.ahamove.com/v1/order/estimated_fee?token={token}</field>
+        </record>
+    </data>
+</odoo>

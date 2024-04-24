@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_delivery_carrier_form_calculate_rate" model="ir.ui.view">
+        <field name="name">delivery.carrier.form.calculate.rate</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='pricing']" position="attributes">
+                <attribute name="domain">('delivery_type', 'not in', ['fixed','base_on_rule', 'viettelpost', 'google_map', 'ahamove'])</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='pricing']/group[@name='general']" position="attributes">
+                <attribute name="domain">('delivery_type', 'not in', ['base_on_rule', 'viettelpost', 'google_map', 'ahamove']"</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
