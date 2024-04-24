@@ -10,26 +10,31 @@
                             type="object"
                             class="btn btn-primary"
                             string="Confirm"
+                            invisible="state == 'new'"
                     />
                     <button name="action_in_process"
                             type="object"
                             class="btn btn-primary"
                             string="In Process"
+                            invisible="state == 'assigned'"
                     />
                     <button name="action_complete"
                             type="object"
                             class="btn btn-success"
                             string="Complete"
+                            invisible="state == 'in_process'"
                     />
                     <button name="action_refuse"
                             type="object"
                             class="btn btn-danger"
                             string="Refuse"
+                            invisible="state =='new'"
                     />
                     <button name="action_cancel"
                             type="object"
                             class="btn"
                             string="Cancel"
+                            invisible="state in ['new','assigned','in_process']"
                     />
                     <field name="state" widget="statusbar" statusbar_visible="new,assigned,in_process,completed"/>
                 </header>
